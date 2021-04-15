@@ -9,15 +9,13 @@ package serializzazione;
  *
  * @author galimberti.riccardoe
  */
-public class Serializzazione {
+public class Studente {
+    String nome, cognome, nRegistro;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        String nome = "Mario", cognome = "Rossi", numero = "69";
-        Studente s = new Studente(nome, cognome, numero);
-        
+    public Studente(String nome, String cognome, String nRegistro) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.nRegistro = nRegistro;
     }
     
 }
