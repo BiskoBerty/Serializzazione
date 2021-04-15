@@ -10,7 +10,7 @@ package serializzazione;
  * @author galimberti.riccardoe
  */
 public class Studente {
-    String nome, cognome, nRegistro;
+    private String nome, cognome, nRegistro;
 
     public Studente(String nome, String cognome, String nRegistro) {
         this.nome = nome;
