@@ -22,28 +22,35 @@ public class Serializzazione {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Studente st = new Studente("Mario", "Rossi" , "69");
+        Thread1 t1 = new Thread1();
+        t1.run();
+        
+        Studente[] list = { new Studente("Mario", "Rossi" , 1),
+            new Studente("Paolo", "Neri" , 2),
+            new Studente("Giovanni", "Verdi" , 3)};
         
         try {
             FileOutputStream FO = new FileOutputStream("test.ser");
             ObjectOutputStream OS = new ObjectOutputStream(FO); 
             
-            OS.writeObject((float) 0.3);
+            OS.writeObject(list);
             OS.flush();
             OS.close();
             FO.close();
 
             FileInputStream FI = new FileInputStream("test.ser");
             ObjectInputStream IS = new ObjectInputStream(FI);
-//            System.out.println((String) IS.readObject());
-//            System.out.println((String) IS.readObject());
+            list = (Studente[])IS.readObject();
+            for (Studente s : list) {
+                System.out.println(s.toString());
+            }
             
         } catch (FileNotFoundException ex) {
             System.out.println("Impossibile trovare il file");
         } catch (IOException ex) {
             System.out.println("Hai rotto java");
-//        } catch (ClassNotFoundException ex) {
-//            System.out.println("Classe non trovata");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Classe non trovata");
         }
     }
     
